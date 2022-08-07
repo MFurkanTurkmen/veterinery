@@ -1,4 +1,4 @@
-package com.furkan.petclinic.dto;
+/**package com.furkan.petclinic.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
@@ -17,3 +17,4 @@ public class OwnerFindAllResponse {
         this.ad = ad;
     }
 }
+*/

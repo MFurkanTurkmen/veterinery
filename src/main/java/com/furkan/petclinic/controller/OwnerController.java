@@ -4,7 +4,6 @@ import com.furkan.petclinic.repository.entity.Owner;
 import com.furkan.petclinic.service.OwnerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/Owner")
 @Api(value = "Owner Controller")
 @RequiredArgsConstructor
 public class OwnerController {
@@ -20,8 +19,8 @@ public class OwnerController {
 
 
     //Save Owner
-    @PostMapping("/create")
-    @ApiOperation(value = "Create Owner")
+    @PostMapping("/createowner")
+    @ApiOperation(value = "/create Owner")
     public ResponseEntity<Owner> createUser(@RequestBody Owner owner){
         Owner resultOwner= ownerService.createUser(owner);
         return ResponseEntity.ok(resultOwner);
@@ -29,11 +28,18 @@ public class OwnerController {
 
     //Get Owner
     @GetMapping("/getowner")
-    @ApiOperation(value = "Get Owner")
+    @ApiOperation(value = "/get Owner")
     public ResponseEntity<List<Owner>> getOwner(){
         List<Owner> resultOwner= ownerService.getOwners();
         return ResponseEntity.ok(resultOwner);
 
     }
 
+    @PutMapping("/edit/{id}")
+    @ApiOperation("/update Owner")
+    public ResponseEntity<Owner> updateOwner(@PathVariable("id") long id , @RequestBody Owner owner){
+
+        Owner resultOwner = ownerService.updateOwner(id,owner);
+        return ResponseEntity.ok(resultOwner);
+    }
 }
