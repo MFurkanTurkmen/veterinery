@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Data //<
+@Data // get,set,tostring oluşturur
 @Table(name = "owner")
 public class Owner extends BaseEntity{
 
@@ -13,7 +13,6 @@ public class Owner extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "musteri_seq")
     @Id
     private long id;
-
     private String ownerName;
     private String OwnerSurname;
     private String ownerPhone;

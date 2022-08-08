@@ -1,44 +1,72 @@
 package com.furkan.petclinic.service.impl;
+import com.furkan.petclinic.dto.owner.GetOwnerResponse;
+import com.furkan.petclinic.dto.request.CreateOwnerRequest;
 import com.furkan.petclinic.repository.OwnerRepository;
 import com.furkan.petclinic.repository.entity.Owner;
 import com.furkan.petclinic.service.OwnerService;
 
 import lombok.RequiredArgsConstructor;
 
+import org.aspectj.bridge.Message;
+import org.aspectj.bridge.MessageWriter;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class OwnerServiceImpl implements OwnerService {
     private final OwnerRepository ownerRepository;
+    private final ModelMapper modelMapper;
+
+
+    //save
     @Override
-    public Owner createUser(Owner owner) {
-        owner.setCreatedDate(new Date());
+    public CreateOwnerRequest createOwner(CreateOwnerRequest createOwnerRequest) {
+        Owner owner = modelMapper.map(createOwnerRequest, Owner.class);
         owner.setCreatedBy("admin");
-        return ownerRepository.save(owner);
+        owner.setUpdateDate(new Date());
+        return modelMapper.map(ownerRepository.save(owner),CreateOwnerRequest.class);
     }
 
-    @Override
-    public List<Owner> getOwners() {
-        return ownerRepository.findAll();
+
+
+    public List<GetOwnerResponse> getOwners() {
+        List <Owner> owners= ownerRepository.findAll();
+        List <GetOwnerResponse> dtoOwner = owners.stream().map(owner -> modelMapper.map(owner,GetOwnerResponse.class)).collect(Collectors.toList());
+        return dtoOwner;
     }
 
+
     @Override
-    public Owner updateOwner(Long id, Owner owner) {
+    public CreateOwnerRequest updateOwner(Long id, CreateOwnerRequest createOwnerRequest) {
         Optional<Owner> resultOwner = ownerRepository.findById(id);
+
         if(resultOwner.isPresent()){
-            resultOwner.get().setOwnerName(owner.getOwnerName());
-            resultOwner.get().setOwnerSurname(owner.getOwnerSurname());
-            resultOwner.get().setOwnerPhone(owner.getOwnerPhone());
-            resultOwner.get().setOwnerAddress(owner.getOwnerAddress());
-            resultOwner.get().setOwnerEmail(owner.getOwnerEmail());
-            return ownerRepository.save(resultOwner.get());
+            resultOwner.get().setOwnerName(createOwnerRequest.getOwnerName());
+            resultOwner.get().setOwnerSurname(createOwnerRequest.getOwnerSurname());
+            resultOwner.get().setOwnerPhone(createOwnerRequest.getOwnerPhone());
+            resultOwner.get().setOwnerAddress(createOwnerRequest.getOwnerAddress());
+            resultOwner.get().setOwnerEmail(createOwnerRequest.getOwnerEmail());
+            resultOwner.get().setUpdateDate(new Date());
+            resultOwner.get().setUpdateBy("admin");
+            return modelMapper.map(ownerRepository.save(resultOwner.get()), CreateOwnerRequest.class);
         }
         return null;
+    }
+
+    @Override
+    public Boolean deleteOwner(Long id) {
+        Optional<Owner> resultOwner= ownerRepository.findById(id);
+        if(resultOwner.isPresent()){
+            ownerRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
 
