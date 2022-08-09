@@ -1,4 +1,4 @@
-package com.furkan.petclinic.dto.owner;
+package com.furkan.petclinic.dto.response;
 
 import lombok.Data;
 

@@ -1,14 +1,11 @@
 package com.furkan.petclinic.service.impl;
-import com.furkan.petclinic.dto.owner.GetOwnerResponse;
+
+import com.furkan.petclinic.dto.response.GetOwnerResponse;
 import com.furkan.petclinic.dto.request.CreateOwnerRequest;
 import com.furkan.petclinic.repository.OwnerRepository;
 import com.furkan.petclinic.repository.entity.Owner;
 import com.furkan.petclinic.service.OwnerService;
-
 import lombok.RequiredArgsConstructor;
-
-import org.aspectj.bridge.Message;
-import org.aspectj.bridge.MessageWriter;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -23,24 +20,13 @@ public class OwnerServiceImpl implements OwnerService {
     private final OwnerRepository ownerRepository;
     private final ModelMapper modelMapper;
 
-
-    //save
     @Override
     public CreateOwnerRequest createOwner(CreateOwnerRequest createOwnerRequest) {
         Owner owner = modelMapper.map(createOwnerRequest, Owner.class);
         owner.setCreatedBy("admin");
-        owner.setUpdateDate(new Date());
+        owner.setCreatedDate(new Date());
         return modelMapper.map(ownerRepository.save(owner),CreateOwnerRequest.class);
     }
-
-
-
-    public List<GetOwnerResponse> getOwners() {
-        List <Owner> owners= ownerRepository.findAll();
-        List <GetOwnerResponse> dtoOwner = owners.stream().map(owner -> modelMapper.map(owner,GetOwnerResponse.class)).collect(Collectors.toList());
-        return dtoOwner;
-    }
-
 
     @Override
     public CreateOwnerRequest updateOwner(Long id, CreateOwnerRequest createOwnerRequest) {
@@ -68,6 +54,18 @@ public class OwnerServiceImpl implements OwnerService {
         }
         return false;
     }
+    @Override
+    public List<GetOwnerResponse> getOwners() {
+        List <Owner> owners= ownerRepository.findAll();
+        List <GetOwnerResponse> dtoOwner = owners.stream()
+                .map(owner -> modelMapper.map(owner,GetOwnerResponse.class))
+                .collect(Collectors.toList());
+        return dtoOwner;
+    }
+
+
+
+
 
 
 }

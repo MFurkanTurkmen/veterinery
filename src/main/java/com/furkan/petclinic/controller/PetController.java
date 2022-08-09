@@ -1,36 +1,51 @@
 package com.furkan.petclinic.controller;
 
-import com.furkan.petclinic.repository.entity.Pet;
+import com.furkan.petclinic.dto.request.CreatePetRequest;
+import com.furkan.petclinic.dto.response.GetPetResponse;
 import com.furkan.petclinic.service.PetService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/pet")
-@Api(value = "Pet Controller")
+@Api(value = "pet controller")
 public class PetController {
 
     private final PetService petService;
 
+    @ApiOperation(value = "/create pate")
     @PostMapping("/createpet")
-    @ApiOperation("/save pet")
-    public ResponseEntity<Pet> createPet(@RequestBody Pet pet){
-        Pet resultPet= petService.createPet(pet);
+    public ResponseEntity<CreatePetRequest> createPet(@RequestBody CreatePetRequest createPetRequest){
+        CreatePetRequest resultPet= petService.createPet(createPetRequest);
         return ResponseEntity.ok(resultPet);
     }
-    @PostMapping("/getpet")
-    @ApiOperation("/get pet")
-    public ResponseEntity<List<Pet>> getPet(){
-        List<Pet> resultPet= petService.getPet();
+
+    @PutMapping("/edit/{id}")
+    @ApiOperation(value = "update pet")
+    public ResponseEntity<CreatePetRequest> updatePet(@PathVariable("id") Long id, @RequestBody CreatePetRequest createPetRequest){
+        CreatePetRequest resultPet= petService.updatePet(id , createPetRequest);
         return ResponseEntity.ok(resultPet);
     }
+
+    @DeleteMapping("/edit/{id}")
+    @ApiOperation(value = "delete pet")
+    public ResponseEntity<Boolean> deletePet(@PathVariable("id") Long id){
+        Boolean status= petService.deletePet(id);
+        return ResponseEntity.ok(status);
+    }
+
+    @ApiOperation(value = "get pet")
+    @GetMapping("getpet")
+    public ResponseEntity<List<GetPetResponse>> getPet(){
+        List<GetPetResponse> resultPet= petService.getPet();
+        return ResponseEntity.ok(resultPet);
+    }
+
+
 }

@@ -2,6 +2,7 @@ package com.furkan.petclinic.dto.request;
 
 import lombok.Data;
 
+
 @Data
 public class CreateOwnerRequest {
 
@@ -10,5 +11,7 @@ public class CreateOwnerRequest {
     private String ownerAddress;
     private String ownerEmail;
     private String ownerPhone;
+
+
 
 }

@@ -12,11 +12,18 @@ public class Pet extends BaseEntity{
     @Id
     @SequenceGenerator(name ="pet_seq", sequenceName = "pet_seq",initialValue = 200,allocationSize = 1)
     @GeneratedValue
-    private long id;
+    private Long petId;
     private String petName;
     private String petType;
     private String PetFamily;
-    private String petAge;
+    private Long petAge;
+
+   /**
+    * Many to one
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ownerId")
+    public Owner owner;
+    */
 
 
 }
