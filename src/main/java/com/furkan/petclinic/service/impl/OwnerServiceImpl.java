@@ -1,5 +1,6 @@
 package com.furkan.petclinic.service.impl;
 
+import com.furkan.petclinic.dto.response.GetOwnerNameResponse;
 import com.furkan.petclinic.dto.response.GetOwnerResponse;
 import com.furkan.petclinic.dto.request.CreateOwnerRequest;
 import com.furkan.petclinic.repository.OwnerRepository;
@@ -54,6 +55,7 @@ public class OwnerServiceImpl implements OwnerService {
         }
         return false;
     }
+
     @Override
     public List<GetOwnerResponse> getOwners() {
         List <Owner> owners= ownerRepository.findAll();
@@ -64,7 +66,14 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
 
-
+    @Override
+    public List<GetOwnerNameResponse> getOwnersName(String name) {
+    List<Owner> owners= ownerRepository.findByOwnerNameStartingWith(name);
+    List<GetOwnerNameResponse> dtoOwner= owners.stream()
+            .map(owner -> modelMapper.map(owner,GetOwnerNameResponse.class))
+            .collect(Collectors.toList());
+    return dtoOwner;
+    }
 
 
 

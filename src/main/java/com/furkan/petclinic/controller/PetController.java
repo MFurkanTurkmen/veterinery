@@ -1,6 +1,8 @@
 package com.furkan.petclinic.controller;
 
 import com.furkan.petclinic.dto.request.CreatePetRequest;
+import com.furkan.petclinic.dto.response.GetOwnerNameResponse;
+import com.furkan.petclinic.dto.response.GetPetNameResponse;
 import com.furkan.petclinic.dto.response.GetPetResponse;
 import com.furkan.petclinic.service.PetService;
 import io.swagger.annotations.Api;
@@ -44,6 +46,11 @@ public class PetController {
     @GetMapping("getpet")
     public ResponseEntity<List<GetPetResponse>> getPet(){
         List<GetPetResponse> resultPet= petService.getPet();
+        return ResponseEntity.ok(resultPet);
+    }
+
+    public ResponseEntity<List<GetPetNameResponse>> getPetName(String name){
+        List<GetPetNameResponse> resultPet= petService.getPetName(name);
         return ResponseEntity.ok(resultPet);
     }
 

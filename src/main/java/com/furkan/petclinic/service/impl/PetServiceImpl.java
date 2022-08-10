@@ -1,6 +1,7 @@
 package com.furkan.petclinic.service.impl;
 
 import com.furkan.petclinic.dto.request.CreatePetRequest;
+import com.furkan.petclinic.dto.response.GetPetNameResponse;
 import com.furkan.petclinic.dto.response.GetPetResponse;
 import com.furkan.petclinic.repository.PetRepository;
 import com.furkan.petclinic.repository.entity.Pet;
@@ -57,6 +58,15 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
+    public List<GetPetNameResponse> getPetName(String name) {
+    List<Pet> pets= petRepository.findByPetNameStartingWith(name);
+    List<GetPetNameResponse> dtoPet =pets.stream()
+            .map(pet -> modelMapper.map(pet,GetPetNameResponse.class))
+            .collect(Collectors.toList());
+    return dtoPet;
+    }
+
+    @Override
     public List<GetPetResponse> getPet() {
         List<Pet> pets = petRepository.findAll();
         List<GetPetResponse> dtoPet = pets.stream()
@@ -64,6 +74,8 @@ public class PetServiceImpl implements PetService {
                 .collect(Collectors.toList());
         return dtoPet;
     }
+
+
 
 
 

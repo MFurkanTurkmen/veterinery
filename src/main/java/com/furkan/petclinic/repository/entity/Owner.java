@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data // get,set,tostring oluşturur
-@Table(name = "owner")
+@Table(name = "tblowner")
 public class Owner extends BaseEntity{
 
     @SequenceGenerator(name = "musteri_seq", sequenceName = "musteri_seq", initialValue = 100, allocationSize = 1)
@@ -14,9 +14,11 @@ public class Owner extends BaseEntity{
     @Id
     private Long ownerId;
     private String ownerName;
-    private String OwnerSurname;
-    private String ownerPhone;
+    private String ownerSurname;
+
+    private String ownerPassword;
     private String ownerAddress;
+    private String ownerPhone;
     private String ownerEmail;
 
     /**

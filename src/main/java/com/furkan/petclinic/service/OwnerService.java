@@ -1,5 +1,6 @@
 package com.furkan.petclinic.service;
 
+import com.furkan.petclinic.dto.response.GetOwnerNameResponse;
 import com.furkan.petclinic.dto.response.GetOwnerResponse;
 import com.furkan.petclinic.dto.request.CreateOwnerRequest;
 
@@ -10,5 +11,8 @@ public interface OwnerService  {
     List<GetOwnerResponse> getOwners();
     CreateOwnerRequest updateOwner(Long id, CreateOwnerRequest createOwnerRequest);
     Boolean deleteOwner(Long id);
+
+    List<GetOwnerNameResponse> getOwnersName(String name);
+
 
 }

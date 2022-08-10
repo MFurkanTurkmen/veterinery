@@ -6,12 +6,12 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "pet")
+@Table(name = "tblpet")
 public class Pet extends BaseEntity{
 
     @Id
     @SequenceGenerator(name ="pet_seq", sequenceName = "pet_seq",initialValue = 200,allocationSize = 1)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_seq")
     private Long petId;
     private String petName;
     private String petType;

@@ -1,5 +1,6 @@
 package com.furkan.petclinic.controller;
 
+import com.furkan.petclinic.dto.response.GetOwnerNameResponse;
 import com.furkan.petclinic.dto.response.GetOwnerResponse;
 import com.furkan.petclinic.dto.request.CreateOwnerRequest;
 import com.furkan.petclinic.service.OwnerService;
@@ -48,6 +49,13 @@ public class OwnerController {
         List<GetOwnerResponse> resultOwner= ownerService.getOwners();
         return ResponseEntity.ok(resultOwner);
 
+    }
+
+    @GetMapping("/getownername")
+    @ApiOperation(value = "/get owner name")
+    public ResponseEntity<List<GetOwnerNameResponse>> getOwnerName(String name){
+        List<GetOwnerNameResponse> resultOwner = ownerService.getOwnersName(name);
+        return ResponseEntity.ok(resultOwner);
     }
 
 
