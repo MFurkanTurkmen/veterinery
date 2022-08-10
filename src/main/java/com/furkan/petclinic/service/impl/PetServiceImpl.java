@@ -25,6 +25,7 @@ public class PetServiceImpl implements PetService {
     @Override
     public CreatePetRequest createPet(CreatePetRequest createPetRequest) {
     Pet pet = modelMapper.map(createPetRequest, Pet.class);
+    pet.getOwner();
     pet.setCreatedDate(new Date());
     pet.setCreatedBy("admin");
     return modelMapper.map(petRepository.save(pet), CreatePetRequest.class);

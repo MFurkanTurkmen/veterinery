@@ -3,6 +3,7 @@ package com.furkan.petclinic.repository.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data // get,set,tostring oluşturur
@@ -21,11 +22,10 @@ public class Owner extends BaseEntity{
     private String ownerPhone;
     private String ownerEmail;
 
-    /**
-     * one to many
+
     @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Pet> pets;
-    */
+
 
 
 

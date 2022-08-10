@@ -18,12 +18,12 @@ public class Pet extends BaseEntity{
     private String PetFamily;
     private Long petAge;
 
-   /**
-    * Many to one
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ownerId")
     public Owner owner;
-    */
+
 
 
 }

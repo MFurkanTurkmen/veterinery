@@ -9,5 +9,7 @@ public class GetOwnerResponse {
     private String ownerEmail;
     private String ownerPhone;
 
+    private Long OwnerId;
+
 
 }
