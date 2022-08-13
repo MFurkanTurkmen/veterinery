@@ -1,7 +1,9 @@
 package com.furkan.petclinic.dto.request;
 
+import com.furkan.petclinic.repository.entity.Owner;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 
 @Data
 public class CreateOwnerRequest {
@@ -12,6 +14,7 @@ public class CreateOwnerRequest {
     private String ownerEmail;
     private String ownerPhone;
 
+    private String ownerPassword;
 
 
 }

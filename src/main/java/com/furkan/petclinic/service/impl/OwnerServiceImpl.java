@@ -1,12 +1,13 @@
 package com.furkan.petclinic.service.impl;
 
+import com.furkan.petclinic.dto.request.CreatePetRequest;
 import com.furkan.petclinic.dto.response.GetOwnerNameResponse;
 import com.furkan.petclinic.dto.response.GetOwnerResponse;
 import com.furkan.petclinic.dto.request.CreateOwnerRequest;
 import com.furkan.petclinic.repository.OwnerRepository;
 import com.furkan.petclinic.repository.entity.Owner;
+import com.furkan.petclinic.repository.entity.Pet;
 import com.furkan.petclinic.service.OwnerService;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +17,22 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class OwnerServiceImpl implements OwnerService {
-    private final OwnerRepository ownerRepository;
+    public OwnerServiceImpl(OwnerRepository ownerRepository, ModelMapper modelMapper) {
+        this.ownerRepository = ownerRepository;
+        this.modelMapper = modelMapper;
+    }
+
+    OwnerRepository ownerRepository;
     private final ModelMapper modelMapper;
 
     @Override
     public CreateOwnerRequest createOwner(CreateOwnerRequest createOwnerRequest) {
         Owner owner = modelMapper.map(createOwnerRequest, Owner.class);
-        owner.setCreatedBy("admin");
         owner.setCreatedDate(new Date());
-        return modelMapper.map(ownerRepository.save(owner),CreateOwnerRequest.class);
+        owner.setCreatedBy("admin");
+        return modelMapper.map(ownerRepository.save(owner), CreateOwnerRequest.class);
+
     }
 
     @Override
@@ -57,6 +63,11 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
+    public Optional<Owner> findByOwnerEmailandOwnerPassword(String email, String password) {
+        return ownerRepository.findOptionalByOwnerEmailAndOwnerPassword(email,password);
+    }
+
+    @Override
     public List<GetOwnerResponse> getOwners() {
         List <Owner> owners= ownerRepository.findAll();
         List <GetOwnerResponse> dtoOwner = owners.stream()
@@ -64,6 +75,8 @@ public class OwnerServiceImpl implements OwnerService {
                 .collect(Collectors.toList());
         return dtoOwner;
     }
+
+
 
 
     @Override

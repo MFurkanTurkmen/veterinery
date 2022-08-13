@@ -1,12 +1,18 @@
 package com.furkan.petclinic.repository.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
+@Builder
 @Table(name = "tblpet")
+@Entity
 public class Pet extends BaseEntity{
 
     @Id

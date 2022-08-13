@@ -7,6 +7,7 @@ import com.furkan.petclinic.service.OwnerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OwnerController {
 
-    private final OwnerService ownerService;
+    @Autowired
+    OwnerService ownerService;
+
+
 
 
     @PostMapping("/createowner")

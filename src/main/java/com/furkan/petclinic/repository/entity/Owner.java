@@ -1,13 +1,19 @@
 package com.furkan.petclinic.repository.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Data // get,set,tostring oluşturur
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
 @Table(name = "tblowner")
+@Entity
 public class Owner extends BaseEntity{
 
     @SequenceGenerator(name = "musteri_seq", sequenceName = "musteri_seq", initialValue = 100, allocationSize = 1)

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pet Clinic Muhammed Furkan Türkmen</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {height: 720px}
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #050505d7;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #400053c5;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+
+
+    </style>
+</head>
+<body >
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar" >
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Anasayfa</a></li>
+                <li><a href="#">Hayvanlarınız</a></li>
+                <li><a href="#">Hakkımızda</a></li>
+                <li><a href="#">İletişim</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> çıkış yap</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid text-center" style="background-image: url('https://www.purina.com.tr/proplan/sites/default/files/2021-11/Homepage_btmBanner_HealthChecker_tablet_1440x915.jpeg');">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+            <p><a href="https://www.linkedin.com/in/muhammedfurkanturkmen/">LinkedIn</a></p>
+            <p><a href="https://github.com/frkntrkmn">Github</a></p>
+        </div>
+        <div class="col-sm-10 text-left">
+            <h1>Hoşgeldiniz...</h1>
+            <h4>Veteriner hekimliği hakkında;</h4>
+            <p>Egzotik hayvan veteriner hekimi - genellikle sürüngenler olmak üzere,  Papağan ve Kakadu gibi egzotik kuşlar, ve Feret, Ada tavşanı, Çinçilla gibi küçük memeliler.</p>
+
+            <p>Koruyucu tıp - hayvan sağlığı, insan sağlığı ve çevre bilimleri arasındaki ilişki hakkında çalışmalar.</p>
+            <p>Küçük hayvan hekimleri - Genellikle köpekler, kediler olmak üzere hamsterlar ve gerbiller gibi diğer refakatçi hayvanlar/pet hayvanları. Bazı hekimler sadece köpek veya sadece kediler ile ilgili uzmanlaşmışlardır.</p>
+            <p>Laboratuvar hayvanları hekimleri - Bazı veteriner hekimler bir üniversite veya sanayi laboratuvarında çalışır ve herhangi bir türdeki laboratuvar hayvanlarının bakımı ve tedavisinden sorumludurlar. Sorumlulukları sadece hayvanlar üzerinde deney yapılması değil aynı zamanda hayvanlara ahlaki ve etik kurallar çerçevesinde davranılmasını sağlamaktır.</p>
+            <p>Büyük hayvan hekimleri - Veteriner hekimleri genelde bu alanda yoğunlaşmıştırlar, çiftlik hayvanları, at ırkları ve büyük sürüngenler.</p>
+            <p>At hekimliği - Bazı veteriner hekimler at hekimliği alanında uzmanlaşmışlardır. Atların anatomileri, fizyolojileri, patolojileri, farmakolojileri, ve yetiştiriciliği diğer evcil hayvanlara göre farklılık gösterir. Mezuniyet öncesinde öğrencilerin at hekimliğine ilgisi olsa bile, uzmanlıkta geliştirilebilen bir daldır.</p>
+            <p>Gıda üretimine yönelik hekimlik - bazı hekimler sadece veya birincil olarak gıda üretimine yönelik çalışma yürütürler (et, süt,yumurta gibi). Çiftlik hekimliği yapan bazı hekimler koyun, keçi, sığır veya domuzlara yönelik; sürü yönetimi, genetik ıslah, beslenme, üreme, hayvan refahı ve bazı cerrahi operasyonlar gibi konularda yoğunlaşırlar. Süt üretimi alanında çalışan hekimler süt hayvanlarına yoğunlaşır. Kanatlı hekimliği uygulamasında kümes sürülerinin sağlığı üzerinde durulur; Bu alan genellikle kuşların patolojisi, epidemiyolojisi ve beslenmesini içeren kapsamlı bir eğitim gerektirir. Veteriner hekim, tek tek hayvanları ve genel olarak da sürüyü gözlemler.</p>
+            <p>Gıda güvenliği uygulamaları - Veteriner hekimler hem gıda endüstrisinde hem de devlet kurumlarında, gıda kaynaklı hastalıkların engellenmesi için uygulayışı izlerler, tavsiyelerde ve yaptırımlarda bulunurlar. Gıdaların üretiminin yanı sıra gıdaların işlenmesi ve depolanmasını da kontrol ederler.</p>
+            <p>Vahşi yaşam hekimliği - Veteriner hekimlikte nispeten yeni bir alandır, vahşi yaşama odaklanmıştır. Vahşi yaşam veteriner hekimleri petrol sızıntıları gibi afetlerde gerek duyulduğunda deniz samuru, yunuslar ya da balinaların tedavisi için zoologlar, koruyucu tıp uzmanları ile birlikte çalışırlar.</p>
+            <p>Su yaşamı hekimliği - Çoğunlukla  su ürünleri yetiştiriciliğinde veteriner sağlık hizmetleri (somon, sazan ve diğer türler) olmak üzere sucul memelilerin bakımı ve tedavisiyle de ilgilenen bir alandır. Bazı ülkelerde bu yetiştiricilik alanının ekonomik getirisi yüksektir ve bu ülkelerde veteriner hekimliğin önemli bir parçasıdır (Norveç ve Şili gibi). Denize kıyısı olmayan veya su ürünleri yetiştiriciliğiyle ilgilenmeyen ülkelerde ise bu alan küçüktür veya hiç yoktur.</p>
+
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+<footer class="container-fluid text-center">
+    <p>En iyi dileklerimiz Hayvanlarınız ve Sizler için.</p>
+</footer>
+
+</body>
+</html>
