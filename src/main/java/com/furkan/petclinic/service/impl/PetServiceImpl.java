@@ -25,7 +25,6 @@ public class PetServiceImpl implements PetService {
     @Override
     public CreatePetRequest createPet(CreatePetRequest createPetRequest) {
     Pet pet = modelMapper.map(createPetRequest, Pet.class);
-    pet.getOwner();
     pet.setCreatedDate(new Date());
     pet.setCreatedBy("admin");
     return modelMapper.map(petRepository.save(pet), CreatePetRequest.class);
@@ -59,6 +58,12 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
+    public void deletePett(long id) {
+        Pet pet = petRepository.getOne(id);
+        petRepository.delete(pet);
+    }
+
+    @Override
     public List<GetPetNameResponse> getPetName(String name) {
     List<Pet> pets= petRepository.findByPetNameStartingWith(name);
     List<GetPetNameResponse> dtoPet =pets.stream()
@@ -76,8 +81,10 @@ public class PetServiceImpl implements PetService {
         return dtoPet;
     }
 
-
-
+    @Override
+    public List<Pet> findall() {
+        return petRepository.findAll();
+    }
 
 
 }

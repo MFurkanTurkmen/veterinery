@@ -3,19 +3,12 @@ package com.furkan.petclinic.controllermodel;
 import com.furkan.petclinic.dto.request.CreateOwnerRequest;
 import com.furkan.petclinic.repository.entity.Owner;
 import com.furkan.petclinic.service.OwnerService;
-import com.furkan.petclinic.service.impl.OwnerServiceImpl;
-import org.mapstruct.Mapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -75,8 +68,8 @@ public class LoginController {
         createOwnerRequest.setOwnerAddress(address);
         createOwnerRequest.setOwnerPhone(phone);
         ownerService.createOwner(createOwnerRequest);
-        model.setViewName("/");
-        return model;
+        model.setViewName("register");
+        return login();
     }
 
 

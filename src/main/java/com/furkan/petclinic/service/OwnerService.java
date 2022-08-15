@@ -15,6 +15,8 @@ public interface OwnerService  {
     CreateOwnerRequest createOwner(CreateOwnerRequest createOwnerRequest);
 
 
+
+    List<Owner> findall();
     CreateOwnerRequest updateOwner(Long id, CreateOwnerRequest createOwnerRequest);
 
     Boolean deleteOwner(Long id);

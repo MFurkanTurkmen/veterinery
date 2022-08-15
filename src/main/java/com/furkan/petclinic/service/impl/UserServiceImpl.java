@@ -7,6 +7,7 @@ import com.furkan.petclinic.repository.entity.User;
 import com.furkan.petclinic.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -17,7 +18,9 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
+    @Autowired
     private final UserRepository userRepository;
+    @Autowired
     private final ModelMapper modelMapper;
 
     @Override
@@ -61,5 +64,15 @@ public class UserServiceImpl implements UserService {
                 .map(user -> modelMapper.map(user,GetUserResponse.class))
                 .collect(Collectors.toList());
         return dtoUser;
+    }
+
+    @Override
+    public List<User> findByUserId(Long id) {
+        return userRepository.findByUserId(id);
+    }
+
+    @Override
+    public List<User> findall() {
+        return userRepository.findAll();
     }
 }

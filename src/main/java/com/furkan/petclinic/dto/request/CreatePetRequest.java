@@ -14,8 +14,6 @@ public class CreatePetRequest {
     private String petType;
     private String petFamily;
     private Long petAge;
+
     private Long ownerId;
-    private void getOwnerId(Owner owner) {
-        this.ownerId = owner.getOwnerId();
-    }
 }

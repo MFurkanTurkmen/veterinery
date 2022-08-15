@@ -9,6 +9,7 @@ import com.furkan.petclinic.repository.entity.Owner;
 import com.furkan.petclinic.repository.entity.Pet;
 import com.furkan.petclinic.service.OwnerService;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -18,13 +19,15 @@ import java.util.stream.Collectors;
 
 @Service
 public class OwnerServiceImpl implements OwnerService {
+
+    @Autowired
+    OwnerRepository ownerRepository;
+    private final ModelMapper modelMapper;
     public OwnerServiceImpl(OwnerRepository ownerRepository, ModelMapper modelMapper) {
         this.ownerRepository = ownerRepository;
         this.modelMapper = modelMapper;
     }
 
-    OwnerRepository ownerRepository;
-    private final ModelMapper modelMapper;
 
     @Override
     public CreateOwnerRequest createOwner(CreateOwnerRequest createOwnerRequest) {
@@ -33,6 +36,11 @@ public class OwnerServiceImpl implements OwnerService {
         owner.setCreatedBy("admin");
         return modelMapper.map(ownerRepository.save(owner), CreateOwnerRequest.class);
 
+    }
+
+    @Override
+    public List<Owner> findall() {
+        return ownerRepository.findAll();
     }
 
     @Override
