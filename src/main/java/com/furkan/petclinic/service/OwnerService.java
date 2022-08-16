@@ -20,6 +20,7 @@ public interface OwnerService  {
     CreateOwnerRequest updateOwner(Long id, CreateOwnerRequest createOwnerRequest);
 
     Boolean deleteOwner(Long id);
+    void deleteOwnerr(long id);
 
     Optional<Owner> findByOwnerEmailandOwnerPassword(String email, String password);
 

@@ -305,8 +305,8 @@
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<form action="/admin/deletekategori" method="post" hidden>
-    <input type="text" name="id" id="delete_id">
+<form action="/admin/deleteadmin" method="post" hidden>
+    <input type="text" name="id" id="delete_adminId">
     <button type="submit" id="btndelete"/>
 </form>
 <!-- jQuery -->
@@ -353,14 +353,14 @@
 
         swal({
             title: "Dikkat! Kategori Silme İşlemi ",
-            text: ad + " Kategorisini silmek istiyor musunuz? ",
+            text: " Kategorisini silmek istiyor musunuz? ",
             icon: "error ",
             buttons: true,
             dangerMode: true,
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    let txtdelete = document.getElementById('delete_id');
+                    let txtdelete = document.getElementById('delete_adminId');
                     txtdelete.value = id;
                     swal("Poof! Your imaginary file has been deleted! ", {
                         icon: "success ",

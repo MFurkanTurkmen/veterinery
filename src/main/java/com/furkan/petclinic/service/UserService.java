@@ -13,6 +13,7 @@ public interface UserService {
     Boolean deleteUser(Long id);
     List<GetUserResponse> getUsers();
     List<User> findByUserId(Long id);
+    void deleteUserr(Long id);
     List <User> findall();
 
 }

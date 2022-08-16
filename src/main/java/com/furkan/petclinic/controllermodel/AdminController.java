@@ -2,9 +2,11 @@ package com.furkan.petclinic.controllermodel;
 
 import com.furkan.petclinic.dto.request.CreatePetRequest;
 import com.furkan.petclinic.dto.request.CreateUserRequest;
+import com.furkan.petclinic.repository.entity.User;
 import com.furkan.petclinic.service.OwnerService;
 import com.furkan.petclinic.service.PetService;
 import com.furkan.petclinic.service.UserService;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -68,10 +70,21 @@ public class AdminController {
     }
     @PostMapping("/deletepet")
     public String deletePet(long id){
-        petService.deletePett(id);
-        return "admin/petpage";
+        petService.deletePetts(id);
+        return "redirect:petpage";
     }
 
+    @PostMapping("/deleteadmin")
+    public String deleteAdmin(long id){
+        userService.deleteUserr(id);
+        return "redirect:adminpage";
+    }
+
+    @PostMapping("/deleteowner")
+    public String deleteOwner(long id){
+        ownerService.deleteOwnerr(id);
+        return "redirect:ownerpage";
+    }
 
 
 }

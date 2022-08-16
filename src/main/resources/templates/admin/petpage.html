@@ -249,7 +249,7 @@
 </div>
 <!-- ./wrapper -->
 <form action="/admin/deletepet" method="post" hidden>
-    <input type="text" name="petId" id="delete_petId">
+    <input type="text" name="id" id="delete_petId">
     <button type="submit" id="btndelete"/>
 </form>
 <!-- jQuery -->
@@ -296,7 +296,7 @@
 
         swal({
             title: "Dikkat! Kategori Silme İşlemi ",
-            text: ad + " Kategorisini silmek istiyor musunuz? ",
+            text:  " Kategorisini silmek istiyor musunuz? ",
             icon: "error ",
             buttons: true,
             dangerMode: true,
@@ -304,7 +304,7 @@
             .then((willDelete) => {
                 if (willDelete) {
                     let txtdelete = document.getElementById('delete_petId');
-                    txtdelete.value = petId;
+                    txtdelete.value =id;
                     swal("Poof! Your imaginary file has been deleted! ", {
                         icon: "success ",
                     });

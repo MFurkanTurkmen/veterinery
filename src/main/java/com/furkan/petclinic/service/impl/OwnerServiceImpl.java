@@ -71,6 +71,12 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
+    public void deleteOwnerr(long id) {
+        Owner owner = ownerRepository.getOne(id);
+        ownerRepository.deleteById(id);
+    }
+
+    @Override
     public Optional<Owner> findByOwnerEmailandOwnerPassword(String email, String password) {
         return ownerRepository.findOptionalByOwnerEmailAndOwnerPassword(email,password);
     }
