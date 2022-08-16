@@ -15,5 +15,7 @@ public class CreatePetRequest {
     private String petFamily;
     private Long petAge;
 
+    @Id
     private Long ownerId;
+
 }

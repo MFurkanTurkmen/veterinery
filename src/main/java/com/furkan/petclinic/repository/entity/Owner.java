@@ -16,10 +16,10 @@ import java.util.List;
 @Entity
 public class Owner extends BaseEntity{
 
-    @SequenceGenerator(name = "musteri_seq", sequenceName = "musteri_seq", initialValue = 100, allocationSize = 1)
+    @SequenceGenerator(name = "musteri_seq", sequenceName = "musteri_seq", initialValue = 400, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "musteri_seq")
     @Id
-
+    @JoinColumn(name = "ownerId")
     Long ownerId;
     private String ownerName;
     private String ownerSurname;
@@ -30,6 +30,8 @@ public class Owner extends BaseEntity{
     private String ownerEmail;
 
 
+    @OneToMany(mappedBy = "owner")
+    private List<Pet> petList;
 
 
 

@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "tbluser")
 public class User extends BaseEntity {
     @Id
-    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", initialValue = 300, allocationSize = 1)
+    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     private Long userId;
 

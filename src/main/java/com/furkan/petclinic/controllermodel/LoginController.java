@@ -26,20 +26,7 @@ public class LoginController {
         return model;
     }
 
-    @PostMapping("/login")
-    public Object doLogin(String email, String password){
-        ModelAndView model=new ModelAndView();
-        Optional<Owner> owner=ownerService.findByOwnerEmailandOwnerPassword(email,password);
-        if (owner.isPresent()){
-            model.setViewName("home");
-            model.addObject("owner",owner.get());
-            return model;
-        }
-        else {
-            System.out.println("hata");
-            return "register";
-        }
-    }
+
     @GetMapping("/register")
     public ModelAndView register(){
         ModelAndView model = new ModelAndView();

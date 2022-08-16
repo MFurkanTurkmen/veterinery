@@ -20,9 +20,9 @@
         </div>
 
         <!-- Login Form -->
-        <form action="/login" method="post">
-            <input type="text" id="email" class="fadeIn second" name="email" placeholder="login">
-            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+        <form action="/owner/index" method="post">
+            <input type="text" id="email" class="fadeIn second" name="email" placeholder="E-Mail">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
             <label th:text="${error}" style="color:red"></label>
             <input type="submit" class="fadeIn fourth" value="Log In">
 

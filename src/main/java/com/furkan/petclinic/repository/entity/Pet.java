@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.mapstruct.Mapper;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 public class Pet extends BaseEntity{
 
     @Id
-    @SequenceGenerator(name ="pet_seq", sequenceName = "pet_seq",initialValue = 200,allocationSize = 1)
+    @SequenceGenerator(name ="pet_seq", sequenceName = "pet_seq",initialValue = 800,allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_seq")
     private Long petId;
     private String petName;
@@ -25,6 +26,9 @@ public class Pet extends BaseEntity{
     private String PetFamily;
     private Long petAge;
 
+    @ManyToOne
+    @JoinColumn(name = "ownerId")
+    private Owner owner;
 
 
 

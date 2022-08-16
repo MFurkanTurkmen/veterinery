@@ -125,7 +125,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="adminpage" class="nav-link active">
+                                <a href="adminpage" class="nav-link ">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Admin Page</p>
                                 </a>
@@ -133,31 +133,19 @@
                             <li class="nav-item">
                                 <a href="ownerpage" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Owner page</p>
+                                    <p>Owner Page</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="petpage" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Pet page</p>
+                                    <p>Pet Page</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
+                                <a href="../" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Reklamlar Alanı</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Güncel Kategoriler</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>En Çok Satılanlar</p>
+                                    <p>Exit</p>
                                 </a>
                             </li>
                         </ul>
@@ -188,65 +176,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- general form elements -->
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">User Register panel</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <!-- ÇOOOOOOK ÖNEMLİ
-                                EĞER BİR FORM İÇNDEN DOSYA GÖNDERECEK İSENİZ
-                                MultiPart/form-data eklenmelidir.
-                             -->
-                            <form action="/admin/kategorisave"
-                                  method="post" enctype="multipart/form-data" >
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <input type="text" name="id" id="id" value="0" hidden>
-                                            <div class="form-group">
-                                                <label>Kategori Adı</label>
-                                                <input type="text" class="form-control"
-                                                       id="ad" name="ad" placeholder="kategori adını giriniz...">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Kategori Adı</label>
-                                                <input type="text" class="form-control"
-                                                       id="ad" name="ad" placeholder="kategori adını giriniz...">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Kategori Adı</label>
-                                                <input type="text" class="form-control"
-                                                       id="ad" name="ad" placeholder="kategori adını giriniz...">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Kategori Adı</label>
-                                                <input type="text" class="form-control"
-                                                       id="ad" name="ad" placeholder="kategori adını giriniz...">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Kategori Adı</label>
-                                                <input type="text" class="form-control"
-                                                       id="ad" name="ad" placeholder="kategori adını giriniz...">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <img class="img-fluid" id="resim"
-                                                 onclick="openimage()" src="https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6">
-                                            <input type="file" name="img_kategori"
-                                                   id="img_kategori" hidden>
-                                        </div>
-                                    </div>
 
-
-
-                                </div>
-                                <!-- /.card-body -->
-
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Kaydet</button>
-                                </div>
-                            </form>
-                        </div>
                         <!-- /.card -->
                     </div>
                 </div>
@@ -256,7 +186,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Users Table</h3>
+                                <h3 class="card-title">Pets Table</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -279,12 +209,14 @@
                                         <td><label th:text="${liste.petFamily}"/></td>
                                         <td><label th:text="${liste.petAge}"/></td>
                                         <td>
-                                            <a   th:attr="onclick=|duzenle('${liste.petId}','${liste.petName}','${liste.petType}')|"
+                                            <a   th:attr="onclick=|duzenle('${liste.petId}','${liste.petName}','${liste.petType}'
+                                            ,'${liste.petFamily}','${liste.petAge}')|"
                                                  class="btn btn-app bg-teal">
                                                 <i class="fas fa-edit"></i> Düzenle
                                             </a>
                                             <a
-                                                    th:attr="onclick=|openPopup('${liste.petId}','${liste.petName}')|"
+                                                    th:attr="onclick=|openPopup('${liste.petId}','${liste.petName}'
+                                                    ,'${liste.petType}','${liste.petFamily}','${liste.petAge}')|"
                                                     class="btn btn-app  bg-danger">
                                                 <i class="fas fa-eraser"></i> Sil
                                             </a>
