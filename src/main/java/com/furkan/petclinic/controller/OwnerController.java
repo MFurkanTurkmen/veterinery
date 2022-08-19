@@ -21,10 +21,7 @@ public class OwnerController {
 
     @Autowired
     OwnerService ownerService;
-
-
-
-
+    
     @PostMapping("/createowner")
     @ApiOperation(value = "/create owner")
     public ResponseEntity<CreateOwnerRequest> createUser(@RequestBody CreateOwnerRequest createOwnerRequest){

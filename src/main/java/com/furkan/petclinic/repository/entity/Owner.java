@@ -28,11 +28,6 @@ public class Owner extends BaseEntity{
     private String ownerAddress;
     private String ownerPhone;
     private String ownerEmail;
-
-
     @OneToMany(mappedBy = "owner")
-    private List<Pet> petList;
-
-
-
+     List<Pet> petList;
 }

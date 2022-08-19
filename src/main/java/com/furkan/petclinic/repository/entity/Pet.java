@@ -23,7 +23,7 @@ public class Pet extends BaseEntity{
     private Long petId;
     private String petName;
     private String petType;
-    private String PetFamily;
+    private String petFamily;
     private Long petAge;
 
     @ManyToOne

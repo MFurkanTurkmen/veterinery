@@ -8,6 +8,7 @@ import com.furkan.petclinic.repository.OwnerRepository;
 import com.furkan.petclinic.repository.entity.Owner;
 import com.furkan.petclinic.repository.entity.Pet;
 import com.furkan.petclinic.service.OwnerService;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

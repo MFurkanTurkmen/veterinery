@@ -130,12 +130,7 @@
                                     <p>Pet Page</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="owner" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Owner İnfo</p>
-                                </a>
-                            </li>
+
 
                             <li class="nav-item">
                                 <a href="petsinfo" class="nav-link">
@@ -268,7 +263,7 @@
                                             <a   th:attr="onclick=|duzenle('${liste.petId}','${liste.petName}','${liste.petType}'
                                             ,'${liste.petFamily}','${liste.petAge}')|"
                                                  class="btn btn-app bg-teal">
-                                                <i class="fas fa-edit"></i> Düzenle
+                                                <i class="fas fa-edit"></i> Duzenle
                                             </a>
                                             <a
                                                     th:attr="onclick=|openPopup('${liste.petId}','${liste.petName}'
@@ -304,8 +299,8 @@
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<form action="/admin/deletepet" method="post" hidden>
-    <input type="text" name="petId" id="delete_petId">
+<form action="/owner/deletepet" method="post" hidden>
+    <input type="text" name="id" id="delete_petId">
     <button type="submit" id="btndelete"/>
 </form>
 <!-- jQuery -->
@@ -348,11 +343,11 @@
 <script src="https://adminlte.io/themes/v3/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
 <script>
-    function openPopup(petId,petName) {
+    function openPopup(id,ad) {
 
         swal({
-            title: "Dikkat! Kategori Silme İşlemi ",
-            text: ad + " Kategorisini silmek istiyor musunuz? ",
+            title: "Dikkat! ",
+            text:  " Silmek istiyor musunuz? ",
             icon: "error ",
             buttons: true,
             dangerMode: true,
@@ -360,7 +355,7 @@
             .then((willDelete) => {
                 if (willDelete) {
                     let txtdelete = document.getElementById('delete_petId');
-                    txtdelete.value = petId;
+                    txtdelete.value =id;
                     swal("Poof! Your imaginary file has been deleted! ", {
                         icon: "success ",
                     });
@@ -373,28 +368,7 @@
 
     }
 </script>
-<script>
-    function openimage(){
-        fileimage = document.getElementById('img_kategori');
-        fileimage.click();
-    }
 
-    const fileIn = document.getElementById('img_kategori'),
-        fileOut = document.getElementById('resim');
-
-    const readUrl = event => {
-        if(event.files && event.files[0]) {
-            let reader = new FileReader();
-            reader.onload = event => fileOut.src = event.target.result;
-            reader.readAsDataURL(event.files[0])
-        }
-    }
-
-    fileIn.onchange = function() {
-        readUrl(this);
-    };
-
-</script>
 <script>
     $(function () {
         $("#example1").DataTable({
@@ -413,13 +387,19 @@
     });
 </script>
 <script>
-    function duzenle(id,ad,parentid){
-        txtid = document.getElementById('id');
-        txtad = document.getElementById('ad');
-        txtparentid = document.getElementById('parent');
-        txtid.value = id;
-        txtad.value = ad;
-        txtparentid.value = parentid;
+    function duzenle(petId,petName,petType, petFamily, petAge ){
+        txtid = document.getElementById('petId');
+        txtad = document.getElementById('petName');
+        txtid = document.getElementById('petType');
+        txtid = document.getElementById('petFamily');
+        txtid = document.getElementById('petAge');
+
+        txtid.value = petId;
+        txtad.value = petName;
+        txtad.value = petType;
+        txtad.value = petFamily;
+        txtad.value = petAge;
+
     }
 </script>
 <!-- AdminLTE App -->

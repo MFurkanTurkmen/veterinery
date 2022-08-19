@@ -1,6 +1,0 @@
-
-1_many to one
-entitylere eklendi ayarlanacak.
-
-2_findByName
-repoda kabul etmiyor hata veriyor.

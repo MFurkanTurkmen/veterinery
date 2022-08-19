@@ -268,10 +268,7 @@
                                         <td><label th:text="${liste.userPassword}"/></td>
                                         <td><label th:text="${liste.userPhone}"/></td>
                                         <td>
-                                            <a   th:attr="onclick=|duzenle('${liste.userId}','${liste.userName}','${liste.userSurname}')|"
-                                                 class="btn btn-app bg-teal">
-                                                <i class="fas fa-edit"></i> Düzenle
-                                            </a>
+
                                             <a
                                                     th:attr="onclick=|openPopup('${liste.userId}','${liste.userName}')|"
                                                     class="btn btn-app  bg-danger">
@@ -352,8 +349,8 @@
     function openPopup(id,ad) {
 
         swal({
-            title: "Dikkat! Kategori Silme İşlemi ",
-            text: " Kategorisini silmek istiyor musunuz? ",
+            title: "Dikkat! ",
+            text:  " Silmek istiyor musunuz? ",
             icon: "error ",
             buttons: true,
             dangerMode: true,
@@ -413,16 +410,7 @@
         });
     });
 </script>
-<script>
-    function duzenle(id,ad,parentid){
-        txtid = document.getElementById('id');
-        txtad = document.getElementById('ad');
-        txtparentid = document.getElementById('parent');
-        txtid.value = id;
-        txtad.value = ad;
-        txtparentid.value = parentid;
-    }
-</script>
+
 <!-- AdminLTE App -->
 <script src="https://adminlte.io/themes/v3/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->

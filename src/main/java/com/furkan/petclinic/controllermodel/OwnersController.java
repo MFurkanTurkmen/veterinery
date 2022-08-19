@@ -65,6 +65,11 @@ public class OwnersController {
         return "redirect:/owner/pet";
     }
 
+    @PostMapping("/deletepet")
+    public String deletePet(long id){
+        petService.deletePetts(id);
+        return "redirect:/owner/pet";
+    }
     @GetMapping("/owner")
     public ModelAndView owner(){
         ModelAndView model=new ModelAndView();

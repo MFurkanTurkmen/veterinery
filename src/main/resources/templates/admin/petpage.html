@@ -209,11 +209,7 @@
                                         <td><label th:text="${liste.petFamily}"/></td>
                                         <td><label th:text="${liste.petAge}"/></td>
                                         <td>
-                                            <a   th:attr="onclick=|duzenle('${liste.petId}','${liste.petName}','${liste.petType}'
-                                            ,'${liste.petFamily}','${liste.petAge}')|"
-                                                 class="btn btn-app bg-teal">
-                                                <i class="fas fa-edit"></i> Düzenle
-                                            </a>
+                                            <
                                             <a
                                                     th:attr="onclick=|openPopup('${liste.petId}','${liste.petName}'
                                                     ,'${liste.petType}','${liste.petFamily}','${liste.petAge}')|"
@@ -292,11 +288,11 @@
 <script src="https://adminlte.io/themes/v3/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
 <script>
-    function openPopup(petId,petName) {
+    function openPopup(id,ad) {
 
         swal({
-            title: "Dikkat! Kategori Silme İşlemi ",
-            text:  " Kategorisini silmek istiyor musunuz? ",
+            title: "Dikkat! ",
+            text:  " Silmek istiyor musunuz? ",
             icon: "error ",
             buttons: true,
             dangerMode: true,
@@ -356,16 +352,7 @@
         });
     });
 </script>
-<script>
-    function duzenle(id,ad,parentid){
-        txtid = document.getElementById('id');
-        txtad = document.getElementById('ad');
-        txtparentid = document.getElementById('parent');
-        txtid.value = id;
-        txtad.value = ad;
-        txtparentid.value = parentid;
-    }
-</script>
+
 <!-- AdminLTE App -->
 <script src="https://adminlte.io/themes/v3/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
